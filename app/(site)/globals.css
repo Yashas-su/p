@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-graphite font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display uppercase tracking-tightest;
+  }
+
+  ::selection {
+    @apply bg-signal text-paper;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme(colors.pulse);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-ink-mid;
+  }
+
+  .grid-tick-bg {
+    background-image:
+      linear-gradient(to right, rgba(20, 19, 27, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(20, 19, 27, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
